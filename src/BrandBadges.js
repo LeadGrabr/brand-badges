@@ -4,16 +4,16 @@ import { Base, Heading } from 'rebass'
 
 const badgeSize = 280
 
-const Badge = ({ heading, icon, iconSize, width }, { rebass: { colors } }) =>
+const Badge = ({ backgroundColor, color, heading, icon, iconSize, width }, { rebass: { colors } }) => // eslint-disable-line max-len
     <Base
         circle
         my={2}
         p={3}
         style={{
             alignItems: 'center',
-            backgroundColor: colors.green,
+            backgroundColor: colors[backgroundColor] || backgroundColor,
             display: 'flex',
-            color: colors.white,
+            color: colors[color] || color,
             height: badgeSize,
             width: badgeSize
         }}
@@ -42,6 +42,8 @@ Badge.defaultProps = {
 }
 
 Badge.propTypes = {
+    backgroundColor: PropTypes.string,
+    color: PropTypes.string,
     heading: PropTypes.string.isRequired,
     icon: PropTypes.func.isRequired,
     iconSize: PropTypes.number.isRequired,
@@ -53,13 +55,14 @@ Badge.contextTypes = {
     rebass: PropTypes.object.isRequired
 }
 
-const BrandBadges = ({ badges }) =>
+const BrandBadges = ({ badges, ...props }) =>
     <Flex
         justify="space-around"
         wrap
     >
         {badges.map((badge, key) =>
             <Badge
+                {...props}
                 {...badge}
                 key={key}
             />
