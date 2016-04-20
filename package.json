@@ -1,7 +1,7 @@
 {
   "name": "@leadgrabr/brand-badges",
   "version": "0.0.1",
-  "description": "",
+  "description": "Usually a list of large-ish icons with small blurbs of text beneath each",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/**",
