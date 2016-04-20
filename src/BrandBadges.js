@@ -4,7 +4,7 @@ import { Base, Heading } from 'rebass'
 
 const badgeSize = 280
 
-const Badge = ({ backgroundColor, color, heading, icon, iconSize, width }, { rebass: { colors } }) => // eslint-disable-line max-len
+const Badge = ({ backgroundColor, color, heading, icon, iconSize }, { rebass: { colors } }) => // eslint-disable-line max-len
     <Base
         circle
         my={2}
@@ -46,8 +46,7 @@ Badge.propTypes = {
     color: PropTypes.string,
     heading: PropTypes.string.isRequired,
     icon: PropTypes.func.isRequired,
-    iconSize: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired
+    iconSize: PropTypes.number.isRequired
 }
 
 Badge.contextTypes = {
