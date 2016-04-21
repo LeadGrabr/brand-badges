@@ -1,6 +1,6 @@
 {
   "name": "@leadgrabr/brand-badges",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Usually a list of large-ish icons with small blurbs of text beneath each",
   "main": "dist/index.js",
   "scripts": {

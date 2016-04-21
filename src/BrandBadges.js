@@ -2,21 +2,17 @@ import { default as React, createElement, PropTypes } from 'react'
 import { Flex } from 'reflexbox'
 import { Base, Heading } from 'rebass'
 
-const badgeSize = 280
-
-const Badge = ({ backgroundColor, color, heading, icon, iconSize }, { rebass: { colors } }) => // eslint-disable-line max-len
+const Badge = ({ backgroundColor, color, heading, height, icon, iconSize, width, ...props }, { rebass: { colors } }) => // eslint-disable-line max-len
     <Base
-        circle
-        my={2}
-        p={3}
         style={{
             alignItems: 'center',
             backgroundColor: colors[backgroundColor] || backgroundColor,
             display: 'flex',
             color: colors[color] || color,
-            height: badgeSize,
-            width: badgeSize
+            height,
+            width
         }}
+        {...props}
     >
         <Base
             style={{
@@ -38,15 +34,19 @@ const Badge = ({ backgroundColor, color, heading, icon, iconSize }, { rebass: { 
     </Base>
 
 Badge.defaultProps = {
+    height: 200,
     iconSize: 80,
+    width: 200
 }
 
 Badge.propTypes = {
     backgroundColor: PropTypes.string,
     color: PropTypes.string,
     heading: PropTypes.string.isRequired,
+    height: PropTypes.number,
     icon: PropTypes.func.isRequired,
-    iconSize: PropTypes.number.isRequired
+    iconSize: PropTypes.number.isRequired,
+    width: PropTypes.number
 }
 
 Badge.contextTypes = {
